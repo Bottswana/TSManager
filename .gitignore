@@ -1,0 +1,10 @@
+Deployment/Autosave
+Deployment/Deployed
+bin
+
+obj
+*.user
+packages/*
+*.vs
+*.dapf
+*.suo
