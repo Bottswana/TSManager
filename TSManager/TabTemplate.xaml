@@ -1,0 +1,55 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TSManager"
+             xmlns:Classes="clr-namespace:TSManager.Classes" x:Class="TSManager.TabTemplate"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+    </UserControl.Resources>
+    <Grid Background="#FFFFFF">
+
+        <DataGrid x:Name="TaskGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,1" Background="White" Margin="-2,10,-2,40" BorderBrush="Silver" AutoGenerateColumns="False" IsReadOnly="True" HorizontalGridLinesBrush="WhiteSmoke" VerticalGridLinesBrush="WhiteSmoke" SelectionUnit="FullRow" SelectionMode="Single">
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Height" Value="20"/>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name}"        ClipboardContentBinding="{Binding Name}"        Header="Name"           Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding PID}"         ClipboardContentBinding="{Binding PID}"         Header="PID"            Width="Auto">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="TextAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Username}"    ClipboardContentBinding="{Binding Username}"    Header="Username"       Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding CPU}"         ClipboardContentBinding="{Binding CPU}"         Header="CPU"            Width="Auto">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="TextAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Memory}"      ClipboardContentBinding="{Binding Memory}"      Header="Memory"         Width="Auto">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="TextAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Description}" ClipboardContentBinding="{Binding Description}" Header="Description"    Width="*"/>
+            </DataGrid.Columns>
+            <DataGrid.DataContext>
+                <Classes:ProcessData/>
+            </DataGrid.DataContext>
+        </DataGrid>
+        <Button x:Name="EndButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,9" Content="End task"/>
+        <Label x:Name="UpdateLabel" Content="" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,8,8"/>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,7 @@
+{
+	"UpdateInterval": 5,
+	"Servers":
+	[
+		{ "Name":"ServerName", "Address":"ServerAddress" }
+	]
+}
